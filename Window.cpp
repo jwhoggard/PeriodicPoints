@@ -1,6 +1,7 @@
 #include "Window.h"
 #include <iostream>
 
+/*
 void printPair(std::pair<int, int> u) {
   std::cout << '(' << u.first << ", " << u.second << ')';
 }
@@ -10,14 +11,8 @@ void printPair(std::pair<double, double> u) {
 void printPair(std::pair<size_t, size_t> u){
   std::cout << '(' << u.first << ", " << u.second << ')';
 }
-
-
-/*
-template <class T>
-void printPair(std::pair<T, T> u) {
-  std::cout << '(' << u.first << ", " << u.second << ')';
-}
 */
+
 
 Window::Window(double width, double height, double leftX, double lowerY, 
 	       size_t xDiv, size_t yDiv) :

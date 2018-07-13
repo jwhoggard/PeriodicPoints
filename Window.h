@@ -4,9 +4,18 @@
 #include <vector>
 #include <complex>
 #include "func.h"
+#include <iostream>
+
+template <class T>
+void printPair(std::pair<T, T> u) {
+  std::cout << '(' << u.first << ", " << u.second << ')';
+}
+
+/*
 
 void printPair(std::pair<int, int> u);
 void printPair(std::pair<double, double> u);
+*/
 
 // Holds information for each cell in the grid
 struct Cell {
