@@ -1,6 +1,11 @@
+#ifndef MYFUNCTION
+#define MYFUNCTION
+
 #include <complex>
 
 class func {
+ protected:
+  func() {};
  public:
   virtual std::complex<double> compVal(std::complex<double> z) = 0;
   virtual std::pair<double, double> pairVal(std::pair<double, double>)=0;
@@ -20,3 +25,5 @@ class quadFunc : public func {
   double cY;
   std::complex<double> c;
 };
+
+#endif

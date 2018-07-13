@@ -12,10 +12,10 @@ int main() {
   cout << "Coords to add: ";
   while(cin >> x) {
     cin >> y;
-    test.AddConnection(pair<int, int>{x, y});
-    cout << "Now " << test.GetNumConnections() << " connections: ";
-    for(int i = 0; i < test.GetNumConnections(); ++i) {
-      printPair(test.GetConnection(i));
+    test.connections.push_back(pair<int, int>{x, y});
+    cout << "Now " << test.connections.size() << " connections: ";
+    for(size_t i = 0; i < test.connections.size(); ++i) {
+      printPair(test.connections[i]);
       cout << ' ';
     }
     cout << endl << "Coords to add: ";

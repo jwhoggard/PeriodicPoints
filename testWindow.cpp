@@ -8,7 +8,9 @@ using namespace std;
 
 int main() {
   
-  Window w(4,4,-2,-2,4,4,quadFunc(.5));
+  Window w(4,4,-2,-2,20,20);
+  quadFunc function = quadFunc(.5);
+  w.ApplyFunction(&function);
 
   cout << "Defaults:" << endl;
   cout << '\t' << "Left:   " << w.GetLeftX() << endl;
@@ -30,11 +32,11 @@ int main() {
     cout << "Pair is in cell (" << result.first << ", " << result.second;
     cout << ")." << endl;
     cout << "And cell there reports i = ";
-    cout << w.GetCellAt(result.first, result.second).GetX();
-    cout << "; j = " << w.GetCellAt(result.first,result.second).GetY() << endl;
+    cout << w.ViewCellAt(result.first, result.second).x;
+    cout << "; j = " << w.ViewCellAt(result.first,result.second).y << endl;
     cout << "And cell maps to cell coordinates (";
-    Cell resCell = w.GetCellAt(result.first, result.second);
-    result = resCell.GetConnection(0);
+    Cell resCell = w.ViewCellAt(result.first, result.second);
+    result = resCell.connections[0];
     cout << result.first << ", " << result.second << "); or approximately";
     cout << endl << "(" << setprecision(3) << fixed;
     result = w.GetCoordinatesFromIndex(result.first, result.second);
