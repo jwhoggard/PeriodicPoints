@@ -1,31 +1,11 @@
 #include "Window.h"
 #include <iostream>
 
-/*
-void printPair(std::pair<int, int> u) {
-  std::cout << '(' << u.first << ", " << u.second << ')';
-}
-void printPair(std::pair<double, double> u) {
-  std::cout << '(' << u.first << ", " << u.second << ')';
-}
-void printPair(std::pair<size_t, size_t> u){
-  std::cout << '(' << u.first << ", " << u.second << ')';
-}
-*/
-
-
 Window::Window(double width, double height, double leftX, double lowerY, 
 	       size_t xDiv, size_t yDiv) :
   leftX(leftX), lowerY(lowerY), width(width), height(height), 
   xDiv(xDiv), yDiv(yDiv) {
-  // Initialize the cells
-  for(size_t i = 0; i < xDiv; ++i) {
-    std::vector<Cell> temp;
-    for(size_t j = 0; j < yDiv; ++j) {
-      temp.push_back(Cell(i, j));
-    }
-    cells.push_back(temp);
-  }
+  SetupGrid();
 }
 
 void Window::ApplyFunction(func * f) {
@@ -53,7 +33,6 @@ void Window::ApplyFunction(func * f) {
       std::cout << std::endl;
     }
   }
-
   return;
 }
 
@@ -78,6 +57,32 @@ std::pair<int, int> Window::GetIndexFromCoordinates(double x, double y) const {
 void Window::AddConnectionAt(std::pair<int, int> cell, std::pair<int, int> target){
   CellAt(cell).connections.push_back(target);
   return;
+}
+
+void Window::SetValues(double w, double h, double lX, double lY, 
+		       size_t xD, size_t yD) {
+  width = w;
+  height = h;
+  leftX = lX;
+  lowerY = lY;
+  xDiv = xD;
+  yDiv = yD;
+  
+  SetupGrid();
+}
+
+void Window::SetupGrid() {
+  // Initialize the cells
+  // If we didn't have to initialize each cell's x, y coordinates, 
+  // we could try to initialize the whole array at once...
+  // Maybe we don't actually need cells to have coords, 'though.
+  for(size_t i = 0; i < xDiv; ++i) {
+    std::vector<Cell> temp;
+    for(size_t j = 0; j < yDiv; ++j) {
+      temp.push_back(Cell(i, j));
+    }
+    cells.push_back(temp);
+  }
 }
 
 

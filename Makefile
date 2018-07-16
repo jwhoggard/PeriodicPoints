@@ -1,7 +1,7 @@
 CXXFLAGS =  -g -O3 -Wall -Wextra -Wuninitialized -pedantic -Wshadow -std=c++14
 
 
-OBJS = Window.o testFunc testWindow cellTest seek
+OBJS = Window.o testFunc testWindow cellTest seek testRootFinder
 
 all: ${OBJS}
 
@@ -16,6 +16,10 @@ Window.o: Window.h func.o
 func.o: func.h
 
 seek: Window.o func.o
+
+RootFinder.o: RootFinder.h
+
+testRootFinder: RootFinder.o
 
 
 clean:
