@@ -4,6 +4,10 @@
 
 using namespace std;
 
+complex<double> f(complex<double> z) {
+  return z*z + complex<double>(1, 0);
+}
+
 int main(){
   RootFinder rf;
 
@@ -20,6 +24,7 @@ int main(){
     cout << "Max iterations: ";
     cin >> maxIt;
     rf.SetMaxIterations(maxIt);
+    rf.SetFunction(f);
     if(rf.FindRoot()) {
       cout << "Approximate root: " << rf.GetResult() << endl;
     } else {

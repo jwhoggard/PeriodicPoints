@@ -9,10 +9,11 @@ class RootFinder {
   //  void SetFunction(func * function) {F = function;}
   std::complex<double> GetResult() {return z;}
   void SetMaxIterations(int max) {maxIter = max;}
+  void SetFunction(std::complex<double> (*F)(std::complex<double>)) {f = F;}
   bool FindRoot();
  private:
   // Start with a built-in function to figure out root finding.
-  std::complex<double> f(std::complex<double>);
+  // std::complex<double> f(std::complex<double>);
   // Starting point
   std::complex<double> start;
   // Current/final z
@@ -23,4 +24,6 @@ class RootFinder {
   double eps;
   // Maximum number of iterations (25 by default)
   int maxIter;
+  // Pointer to function
+  std::complex<double> (*f)(std::complex<double> z);
 };

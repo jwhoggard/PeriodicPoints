@@ -27,7 +27,10 @@ bool RootFinder::FindRoot() {
   return found;
 }
 
-
+/*
 complex<double> RootFinder::f(complex<double> w) {
   return w*w + complex<double>(1, 0);
 }
+*/
+
+
