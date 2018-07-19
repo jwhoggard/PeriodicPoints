@@ -120,6 +120,8 @@ class Window {
     will still return a reasonable (x, y) coordinate pair.
   */
   std::pair<double, double> GetCoordinatesFromIndex(int i, int j) const;
+  std::complex<double> GetComplexFromIndexPair(std::pair<int, int> u) const;
+
 
   /*
     Given an (x, y) real-number coordinate pair, will return the (i, j)

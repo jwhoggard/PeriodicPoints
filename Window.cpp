@@ -43,6 +43,11 @@ std::pair<double, double> Window::GetCoordinatesFromIndex(int i, int j) const {
   return std::make_pair(x, y);
 }
 
+std::complex<double> Window::GetComplexFromIndexPair(std::pair<int, int> u) const {
+  std::pair<double, double> temp = GetCoordinatesFromIndex(u.first, u.second);
+  return std::complex<double>{temp.first, temp.second};
+}
+
 std::pair<int, int> Window::GetIndexFromCoordinates(double x, double y) const {
   int i, j;
   if(x<leftX or y<lowerY or x >= leftX+width or y >= lowerY + height) {
